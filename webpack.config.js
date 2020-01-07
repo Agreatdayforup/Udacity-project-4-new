@@ -3,14 +3,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
-    entry: "./src/client/index.js"
+    entry: {
+        app: 'index.js'
+    }
   };
 
 module.exports = {
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
