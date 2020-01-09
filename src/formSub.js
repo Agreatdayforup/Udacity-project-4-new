@@ -7,29 +7,29 @@ const userURL = document.getElementById('name').value
 
 
 
-searchForm.addEventListener('submit', (e) => { 
+searchForm.addEventListener('submit', (event) => { 
     event.preventDefault()
 
-     const getClassify = async (url='', data = {}) => {
-      try {
-        const Aylapi = await fetch(url, {
+    const getURL = 'http://localhost:8080/classify'
+
+       fetch(getURL, {
           method: 'POST',
-          credentials: 'same-origin',
+          mode: 'cors',
           headers: {
             'Content-Type': 'application/json',
           },
-          body:JSON.stringify(data)
+          body:JSON.stringify({url: userURL})
         })
           .then(res => res.json())
           .then(function(res) {
-            document.getElementById('results').innerHTML = (res.message)
-          })
-        } catch(error) {
+            console.log(res)
+            document.getElementById('results').innerHTML = res.label
           
-        }
-      }
-      getClassify('http://localhost:8081/classify', {'URL': userURL})
-  })  
+        }) .catch((error) => {
+            console.log('rejected', error)
+        })
+      })
+
 
       
 

@@ -9,7 +9,7 @@ dotenv.config()
 
 const express = require('express')
 
-var AYLIEN = require('aylien_textapi')
+var Aylien = require('aylien_textapi')
 
 // set server using express
 const app = express()
@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 
 //configure cors
 app.use(cors())
-// app.options("Access-Control-Allow-Origin", "*", cors())
+ 
 
 
 const publicDirectoryPath = path.join(__dirname, 'src')
@@ -29,31 +29,32 @@ app.use(express.static(publicDirectoryPath))
 
 
 
-
+let testAnyzData = {}
 
 // initiates the aylien SDK have no fucking clue how to get my ID&KEYS to send over
-var textapi = new AYLIEN({
+var textapi = new Aylien({
   application_id: process.env.Aylien_ID,
   application_key: process.env.Aylien_KEY
 })
 
-console.log('Your key is' )
+console.log(`Your key is ${process.env.Aylien_KEY}`)
 
 //aylien API call for JS
-function AylAPI(req, res) {
-    textapi.classify({
-      'url': req.body.URL
-    }, function(error, res) {
-      if (error === null) {
-        res.send(response)
-        }
-        console.log(response);
-    })
-    return res
-}
 
 app.post('/classify', function (req, res){
-  AylAPI(req, res)
+  let InputURL = req.body.URL
+  textapi.classify({
+    'url': InputURL
+  }, function(error, res) {
+    if (error === null) {
+      testAnyzData['label'] = response.label
+
+      res.send(testAnyzData)
+      console.log(testAnyzData)
+      } else {
+        console.log(error)
+      }  
+  }) 
 })
 
 
