@@ -1,5 +1,5 @@
 /* STYLE VARIABLES */
-$bg: rgb(67, 59, 208);
+$bg: rgb(255, 255, 255);
 
 
 /* RESETS */
@@ -97,6 +97,7 @@ header {
 
     h1 {
         font-size: 40px;
+        color: #1500ff;
     }
 }
 
@@ -111,7 +112,7 @@ strong {
 
 /* FORM */
 form {
-    background-color: #8983cb;
+    background-color: #1601ff;
     border-radius: 0 15px 0 0;
     padding: 40px;
 }
@@ -124,7 +125,7 @@ input {
 }
 
 #section1 {
-    background-color: #8983cb;
+    background-color: #1500ff;
     color: white;
     border-radius: 0 15px 0 0;
 }

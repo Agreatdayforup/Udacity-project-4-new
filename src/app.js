@@ -31,7 +31,7 @@ app.use(express.static(publicDirectoryPath))
 
 let testAnyzData = {}
 
-// initiates the aylien SDK have no fucking clue how to get my ID&KEYS to send over
+// initiates the aylien SDK 
 var textapi = new Aylien({
   application_id: process.env.Aylien_ID,
   application_key: process.env.Aylien_KEY
