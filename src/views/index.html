@@ -5,22 +5,17 @@
         <title>Article Evaluation</title>
         <!--<link rel="stylesheet" href="src/styles/base.css">-->
     </head>
-
     <body>
-
         <header>
-            <div class="Logo">
-                Logo
-            </div>
-            <div class="navBar">
-                navigation
-            </div>
+            <a class="Logo">Logo</a>
+            <a class="navBar">Navigation</a>
         </header>
-
-        <main>
-            <div class="title">
-                <h1>Analyze an Article or Blog Post</h1>
-            </div>
+        <body>
+            <section id="title">
+                <div class="title">
+                    <h1>Analyze an Article or Blog Post</h1>
+                </div>
+            </section>
                 <section id="section1">
                     <form class="form" > <!-- onsubmit="return handleSubmit(event)"-->
                         <input id="name" type="text" name="input" value=""  placeholder="URL PLEASE">
@@ -28,16 +23,14 @@
                         <button id="generate" type="submit">Submit</button>
                     </form>
                 <section>
-
                 <section id="section2">
                     <strong>Form Results:</strong>
                     <div id="results"></div>
                 </section>
-        </main>
-
-        <footer>
-            <p>This is a footer</p>
-        </footer>
+            </body>
+            <footer>
+                <p>This is a footer</p>
+            </footer>
         <!--<script src="/index.js" type="module"></script>-->
         <script>
             // Check that service workers are supported

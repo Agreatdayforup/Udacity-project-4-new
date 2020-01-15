@@ -1,0 +1,18 @@
+@import 'variables.scss';
+
+footer {
+   display: 5;
+
+   p{
+    vertical-align: text-bottom;
+   }
+}
+
+
+
+@media (max-width: 375px) {
+
+    footer {
+        padding: 2%;
+    }
+}	

@@ -1,15 +1,14 @@
-const path = require('path')
-var bodyParser = require('body-parser')
-const cors = require('cors')
-
-
 //enviroment variables
 const dotenv = require('dotenv')
 dotenv.config()
 
+const path = require('path')
+var bodyParser = require('body-parser')
+const cors = require('cors')
 const express = require('express')
-
 var Aylien = require('aylien_textapi')
+
+
 
 // set server using express
 const app = express()
@@ -21,11 +20,17 @@ app.use(bodyParser.json())
 
 //configure cors
 app.use(cors())
- 
 
+// main project folder
+app.use(express.static('dist'))
 
-const publicDirectoryPath = path.join(__dirname, 'src')
-app.use(express.static(publicDirectoryPath))
+// Initialize routes
+app.get('/', function (req, res) {
+  res.sendFile('dist/index.html')
+})
+
+// const publicDirectoryPath = path.join(__dirname, 'src')
+// app.use(express.static(publicDirectoryPath))
 
 
 

@@ -1,5 +1,8 @@
-/* STYLE VARIABLES */
-$bg: rgb(255, 255, 255);
+@import 'variables.scss';
+@import 'form.scss';
+@import 'footer.scss';
+@import 'header.scss';
+
 
 
 /* RESETS */
@@ -34,7 +37,7 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
-	padding: 0;
+	padding: 5px;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
@@ -47,6 +50,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	
 }
 ol, ul {
 	list-style: none;
@@ -75,82 +79,21 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: $bg;
+	background: $bg;
+	padding: 0 20%;
+    display: grid;
+    grid-gap: 3px;
 }
 
-main {
-    flex: 2;
-}
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
-}
 
-/* HEADER ENDS */
-.title {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
 
-    h1 {
-        font-size: 40px;
-        color: #1500ff;
-    }
-}
+@media (max-width: 375px) {
 
-section {
-    max-width: 800px;
-    margin: 50px auto;
-}
-
-strong {
-    font-size: 30px;
-}
-
-/* FORM */
-form {
-    background-color: #1601ff;
-    border-radius: 0 15px 0 0;
-    padding: 40px;
-}
-
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
-}
-
-#section1 {
-    background-color: #1500ff;
-    color: white;
-    border-radius: 0 15px 0 0;
-}
-
-#section2 {
-    background-color: #8983cb;
-    border-top: 2px solid white;
-    color: white;
-    border-radius: 0 15px 0 0;
-    padding: 10px;
-    height: auto;
-    background: rgb(204,26,26);
-    background: linear-gradient(0deg, rgba(204,26,26,1) 0%, rgba(204,26,26,1) 0%, rgba(219,114,108,1) 0%, rgba(204,93,93,1) 6%, rgba(190,99,99,0.1434712987037221) 30%, rgba(212,112,112,0.08296174456359473) 83%, rgba(231,123,123,0) 98%);
-}
-
-#generate {
-    float: right;
-    background-color: #34bbe4;
-    color: white;
-    font-size: 18px;
-    padding: 1.1%;
-    border: none;
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 14px 30px -6px rgba(93, 140, 211, 0.28); 
-box-shadow: 0px 14px 30px -6px rgba(93, 140, 211, 0.28);
-}
-
-/* FORM ENDS */
+		body {
+			flex: 1;
+			padding: 2%;
+			display: grid;
+			grid-gap: 10px;
+		}
+}	

@@ -14,9 +14,14 @@ function validURL(userURL) {
   '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip (v4) address
   '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ //port
   '(\\?[;&amp;a-z\\d%_.~+=-]*)?'+ // query string
-  '(\\#[-a-z\\d_]*)?$','i');
-  return pattern.test(userURL);
-}
+  '(\\#[-a-z\\d_]*)?$','i')
+    if(pattern.test(userURL)){
+      return true
+    } else {
+      return false
+    }
+  }
+
 
 searchForm.addEventListener('submit', (event) => { 
     event.preventDefault()
@@ -51,5 +56,6 @@ searchForm.addEventListener('submit', (event) => {
 
 
 export { searchForm }
+export { validURL }
 
 
