@@ -29,19 +29,19 @@ searchForm.addEventListener('submit', (event) => {
     const getURL = 'http://localhost:8080/classify'
 
     if (validURL(userURL)) {
-       fetch(getURL, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: SON.stringify({url: userURL})
-        })
+      fetch(getURL) 
+      //{
+      //     method: 'POST',
+      //     mode: 'cors',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //     body: JSON.stringify({url: userURL})
+      //   })
           .then(res => res.json())
           .then(function(res) {
             console.log(res)
             document.getElementById('results').innerHTML = res.label
-          
         }) .catch((error) => {
             console.log('rejected', error)
         })
