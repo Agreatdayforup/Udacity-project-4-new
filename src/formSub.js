@@ -39,6 +39,9 @@ searchForm.addEventListener('submit', (event) => {
             document.getElementById('results').innerHTML = res.label
         }) 
         document.getElementById('generate').style.backgroundColor = "#4def8c"
+        .catch((error) => {
+          console.log('rejected', error)
+          })
       }  else {
         document.getElementById('results').innerHTML = 'Please type a Url'
         document.getElementById('generate').style.backgroundColor = "#ff6347"
