@@ -37,7 +37,7 @@ The goal of this project is to practice working with:
     "sass-loader",
     "style-loader",
 
-## Set up a Webpack dev and production evniroment
+## Set up a Webpack dev and production enviroment
 
 
 ## Setting up the API
