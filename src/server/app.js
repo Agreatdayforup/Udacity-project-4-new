@@ -4,7 +4,7 @@ dotenv.config()
 
 const path = require('path')
 var bodyParser = require('body-parser')
-
+const cors = require('cors')
 const express = require('express')
 var Aylien = require('aylien_textapi')
 
@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 
 //configure cors
-
+app.use(cors())
 
 // main project folder
 app.use(express.static('dist'))
@@ -40,13 +40,22 @@ var textapi = new Aylien({
 //shows the api key is properly called
 console.log(`Your key is ${process.env.Aylien_KEY}`)
 
-//test to see if fech is working
-app.get('/test', function (req, res) {
-  let mockAPIResponse = {
-    'title': 'test json response',
-    'message': 'this is a message',
-    'time': 'now'
+//mock api
+let mockAPIResponse = {
+  'title': 'test json response',
+  'message': 'this is a message',
+  'time': 'now'
+}
+// mock array for testing
+const functions = {
+  createUser: () => {
+    const user = {firstName: 'Patrick'}
+    user['lastName'] = 'Cayer'
+    return user
   }
+}
+//test to see if fetch is working
+app.get('/test', function (req, res) {
   res.send(mockAPIResponse)
 })
 
@@ -56,11 +65,14 @@ app.post('/classify', function (req, res) {
   let InputURL = req.body.url
   textapi.sentiment({ url: InputURL }, function (error, response) {
     if (error === null) {
-      testAnyzData['results'] = response.results
-      
+      testAnyzData['results'] = response.polarity
+      testAnyzData['polarity_c'] = response.polarity_confidence
+      testAnyzData['subjectivity'] = response.subjectivity
+      testAnyzData['subjectivity_c'] = response.subjectivity_confidence
 
+      
       res.send(response)
-      console.log(testAnyzData)
+      //console.log(response)
     } else {
       console.log(error)
     }
@@ -68,7 +80,10 @@ app.post('/classify', function (req, res) {
 })
 
 
+module.exports = functions
+
 app.listen(8080, () => {
   console.log('the server is live')
 })
+
 

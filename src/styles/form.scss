@@ -12,9 +12,14 @@
     }
 }
 
+
 section {
     max-width: 800px;
     margin: 10px auto;
+
+    h2 {
+        font-size: 25px;
+    }
 }
 
 strong {
@@ -52,7 +57,7 @@ input {
     border-top: 2px solid white;
     color: white;
     border-radius: 0 15px 0 0;
-    height: 150px;
+    height: 300px;
     width: 100%;
     
 }
