@@ -1,5 +1,3 @@
-import validator from "validator"
-
 const Api_results = document.getElementById('results')
 const Api_results2 = document.getElementById('polarity_c')
 const Api_results3 = document.getElementById('subjectivity')
@@ -37,7 +35,7 @@ const functions = {
   add: (num1, num2) => num1 + num2
 }
 
-module.exports = functions
+export { functions }
 export { handleSubmit }
       
 
