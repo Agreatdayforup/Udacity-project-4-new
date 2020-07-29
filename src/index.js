@@ -8,7 +8,7 @@ import './styles/base.scss';
 //import './styles/header.scss'
 
 
-export {handleSubmit}
+export {handleSubmit};
 
 
 
