@@ -1,6 +1,6 @@
 console.log('the client side is loaded');
 
-import { handleSubmit } from './src/js/formSub.js'
+import { handleSubmit } from './src/js/formSub.js';
 
 import './styles/base.scss';
 //import './styles/footer.scss'
